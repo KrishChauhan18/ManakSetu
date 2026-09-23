@@ -17,4 +17,11 @@ export default defineConfig({
       },
     },
   },
+  preview: {
+    // Railway injects PORT at runtime; fall back to 4173 for local preview
+    port: parseInt(process.env.PORT ?? '4173'),
+    host: '0.0.0.0',
+    allowedHosts: ['all'],
+  },
 })
+

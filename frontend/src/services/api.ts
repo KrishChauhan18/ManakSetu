@@ -4,7 +4,10 @@
  * Backend wraps every response in { success: bool, data: T, error: ... }.
  */
 
-const BASE_URL = "/api/v1";
+// In production (Railway), VITE_API_BASE_URL is set to the backend Railway URL (e.g. https://xxx.railway.app).
+// In local dev, it is unset and Vite's proxy forwards /api/v1 to http://127.0.0.1:8000.
+const _apiHost = import.meta.env.VITE_API_BASE_URL;
+const BASE_URL = _apiHost ? `${_apiHost.replace(/\/$/, "")}/api/v1` : "/api/v1";
 
 const TOKEN_KEY = "metriaegis_token";
 
