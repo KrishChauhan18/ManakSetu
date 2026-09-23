@@ -1,0 +1,14 @@
+ocr_env/
+venv/
+__pycache__/
+*.pyc
+*.joblib
+storage/images/*
+!storage/images/.gitkeep
+storage/reports/*
+!storage/reports/.gitkeep
+storage/*.db
+storage/.initial_seed_credentials.json
+.pytest_cache/
+.env
+*.log

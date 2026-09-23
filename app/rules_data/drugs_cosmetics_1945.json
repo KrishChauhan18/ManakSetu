@@ -1,0 +1,99 @@
+[
+  {
+    "rule_id": "DCR1945-DRUG-NAME",
+    "legal_rule_ref": "Rule 96(1)(i)",
+    "source_law": "Drugs and Cosmetics Rules, 1945",
+    "field": "drug_name",
+    "check": "presence",
+    "severity": "critical",
+    "category": ["medicine"],
+    "version": "1945"
+  },
+  {
+    "rule_id": "DCR1945-COMPOSITION",
+    "legal_rule_ref": "Rule 96(1)(iii)",
+    "source_law": "Drugs and Cosmetics Rules, 1945",
+    "field": "composition",
+    "check": "presence",
+    "severity": "critical",
+    "category": ["medicine"],
+    "version": "1945"
+  },
+  {
+    "rule_id": "DCR1945-MFG-LIC",
+    "legal_rule_ref": "Rule 96(1)(vi)",
+    "source_law": "Drugs and Cosmetics Rules, 1945",
+    "field": "mfg_license_no",
+    "check": "presence",
+    "pattern": "^[A-Z0-9/\\-\\s]{4,}$",
+    "severity": "critical",
+    "category": ["medicine"],
+    "version": "1945"
+  },
+  {
+    "rule_id": "DCR1945-BATCH-NO",
+    "legal_rule_ref": "Rule 96(1)(iv)",
+    "source_law": "Drugs and Cosmetics Rules, 1945",
+    "field": "batch_number",
+    "check": "presence",
+    "severity": "critical",
+    "category": ["medicine"],
+    "version": "1945"
+  },
+  {
+    "rule_id": "DCR1945-EXP-DATE",
+    "legal_rule_ref": "Rule 96(1)(vii)",
+    "source_law": "Drugs and Cosmetics Rules, 1945",
+    "field": "expiry_date",
+    "check": "date_format",
+    "pattern": "^(0[1-9]|1[0-2])/\\d{4}$",
+    "severity": "critical",
+    "category": ["medicine"],
+    "version": "1945"
+  },
+  {
+    "rule_id": "DCR1945-SCHEDULE-WARNING",
+    "legal_rule_ref": "Rule 97 / Schedule H/H1/X",
+    "source_law": "Drugs and Cosmetics Rules, 1945",
+    "field": "schedule_warning",
+    "check": "schedule_warning",
+    "pattern": {
+      "schedule_h": "SCHEDULE H PRESCRIPTION DRUG - CAUTION: Not to be sold by retail without the prescription of a Registered Medical Practitioner",
+      "schedule_h1": "SCHEDULE H1 PRESCRIPTION DRUG - CAUTION: It is dangerous to take this preparation except in accordance with medical advice",
+      "schedule_x": "SCHEDULE X DRUG - WARNING: To be sold by retail on the prescription of a Registered Medical Practitioner only"
+    },
+    "severity": "critical",
+    "category": ["medicine"],
+    "version": "1945"
+  },
+  {
+    "rule_id": "DCR1945-RX-SYMBOL",
+    "legal_rule_ref": "Rule 97(1)",
+    "source_law": "Drugs and Cosmetics Rules, 1945",
+    "field": "rx_symbol",
+    "check": "symbol_presence",
+    "severity": "high",
+    "category": ["medicine"],
+    "version": "1945"
+  },
+  {
+    "rule_id": "DCR1945-STORAGE-COND",
+    "legal_rule_ref": "Rule 96(1)(v)",
+    "source_law": "Drugs and Cosmetics Rules, 1945",
+    "field": "storage_conditions",
+    "check": "presence",
+    "severity": "medium",
+    "category": ["medicine"],
+    "version": "1945"
+  },
+  {
+    "rule_id": "DCR1945-MFR-ADDRESS",
+    "legal_rule_ref": "Rule 96(1)(ii)",
+    "source_law": "Drugs and Cosmetics Rules, 1945",
+    "field": "manufacturer",
+    "check": "presence",
+    "severity": "critical",
+    "category": ["medicine"],
+    "version": "1945"
+  }
+]

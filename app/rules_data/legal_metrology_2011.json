@@ -1,0 +1,153 @@
+[
+  {
+    "rule_id": "LM2011-R6-COMMODITY",
+    "legal_rule_ref": "Rule 6(1)(a)",
+    "field": "commodity_name",
+    "check": "presence",
+    "severity": "critical",
+    "category": ["all"],
+    "version": "2011"
+  },
+  {
+    "rule_id": "LM2011-R6-QTY",
+    "legal_rule_ref": "Rule 6(1)(b)",
+    "field": "net_quantity",
+    "check": "presence_and_unit",
+    "severity": "critical",
+    "category": ["all"],
+    "version": "2011"
+  },
+  {
+    "rule_id": "LM2011-R10-MFR",
+    "legal_rule_ref": "Rule 10",
+    "field": "manufacturer",
+    "check": "conditional_entity",
+    "pattern": {
+      "keywords": {
+        "manufacturer": ["mfg by", "manufactured by"],
+        "packer": ["packed by", "marketed by"],
+        "importer": ["imported by"]
+      },
+      "requires_if_imported": ["country_of_origin"]
+    },
+    "severity": "critical",
+    "category": ["all"],
+    "version": "2011"
+  },
+  {
+    "rule_id": "LM2011-R6-MRP",
+    "legal_rule_ref": "Rule 6(1)(d)",
+    "field": "mrp",
+    "check": "regex",
+    "pattern": "^(₹|Rs\\.?|INR)?\\s?\\d+(\\.\\d{1,2})?$",
+    "severity": "critical",
+    "category": ["all"],
+    "version": "2011"
+  },
+  {
+    "rule_id": "LM2011-R6-MRP-TAX",
+    "legal_rule_ref": "Rule 6(1)(d)",
+    "field": "mrp",
+    "check": "keyword_nearby",
+    "pattern": "inclusive of all taxes",
+    "severity": "low",
+    "category": ["all"],
+    "version": "2011"
+  },
+  {
+    "rule_id": "LM2011-R6-MFG_DATE",
+    "legal_rule_ref": "Rule 6(1)(e)",
+    "field": "mfg_date",
+    "check": "date_format",
+    "pattern": "^(0[1-9]|1[0-2])/\\d{4}$",
+    "severity": "high",
+    "category": ["all"],
+    "version": "2011"
+  },
+  {
+    "rule_id": "LM2011-R6-EXP_DATE",
+    "legal_rule_ref": "Rule 6",
+    "field": "expiry_date",
+    "check": "date_format",
+    "pattern": "^(0[1-9]|1[0-2])/\\d{4}$",
+    "severity": "high",
+    "category": ["food", "cosmetics"],
+    "version": "2011"
+  },
+  {
+    "rule_id": "LM2011-R6-DATE_LOGIC",
+    "legal_rule_ref": "Rule 6",
+    "field": ["mfg_date", "expiry_date"],
+    "check": "date_order",
+    "severity": "critical",
+    "category": ["all"],
+    "version": "2011"
+  },
+  {
+    "rule_id": "LM2011-FSSAI",
+    "legal_rule_ref": "FSSAI (food category)",
+    "field": "fssai_license",
+    "check": "external_verification",
+    "pattern": "^\\d{14}$",
+    "severity": "critical",
+    "category": ["food"],
+    "version": "2011"
+  },
+  {
+    "rule_id": "LM2011-R6-CARE",
+    "legal_rule_ref": "Rule 6(1)(f)",
+    "field": "consumer_care",
+    "check": "presence",
+    "severity": "high",
+    "category": ["all"],
+    "version": "2011"
+  },
+  {
+    "rule_id": "LM2011-R6-BATCH",
+    "legal_rule_ref": "Rule 6",
+    "field": "batch_number",
+    "check": "presence",
+    "severity": "medium",
+    "category": ["all"],
+    "version": "2011"
+  },
+  {
+    "rule_id": "LM2011-R6-INGREDIENTS",
+    "legal_rule_ref": "Rule 6",
+    "field": "ingredients_declared",
+    "check": "presence",
+    "severity": "medium",
+    "category": ["food", "cosmetics"],
+    "version": "2011"
+  },
+  {
+    "rule_id": "LM2011-R7-PROMINENCE",
+    "legal_rule_ref": "Rule 7",
+    "field": "*",
+    "check": "spatial_prominence",
+    "pattern": {"min_ratio": 0.015},
+    "severity": "high",
+    "category": ["all"],
+    "version": "2011"
+  },
+  {
+    "rule_id": "LM2011-R9-SCRIPT",
+    "legal_rule_ref": "Rule 9",
+    "field": "*",
+    "check": "script_check",
+    "pattern": ["latin", "devanagari"],
+    "severity": "medium",
+    "category": ["all"],
+    "version": "2011"
+  },
+  {
+    "rule_id": "LM2011-CONF",
+    "legal_rule_ref": "internal QA",
+    "field": "*",
+    "check": "min_confidence",
+    "pattern": {"threshold": 0.5},
+    "severity": "manual_review",
+    "category": ["all"],
+    "version": "2011"
+  }
+]

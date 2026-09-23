@@ -1,0 +1,12 @@
+{
+  "image_id": "sample_label_01.jpg",
+  "category": "food",
+  "ground_truth": {
+    "manufacturer": "Amul Dairy Foods Pvt. Ltd., Anand, Gujarat",
+    "net_quantity": "500 g",
+    "mrp": "₹120.00",
+    "mfg_date": "03/2025",
+    "expiry_date": "03/2026",
+    "consumer_care": "1800-112-2334 / care@amul.co.in"
+  }
+}
